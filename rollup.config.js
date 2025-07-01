@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
+import postcss from 'rollup-plugin-postcss';
 
 export default {
   input: 'src/main.js',
@@ -14,5 +15,10 @@ export default {
     resolve(),
     commonjs(),
     babel({ babelHelpers: 'bundled' }),
+    postcss({
+      extract: true,       // Extrae a un archivo .css (por defecto con el mismo nombre que .js)
+      minimize: true,      // Opcional: minifica CSS
+      sourceMap: true
+    })
   ]
 };

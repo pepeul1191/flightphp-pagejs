@@ -35,10 +35,10 @@
 /config/master.key
 
 node_modules
-static/dist
+public/dist
 
 __pycache__
 *.sqlite3
-static/fonts
+public/fonts
 
 venv

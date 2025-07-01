@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import page from 'page';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 function loadView(path) {
   $('#app').load(`/views${path}.html`);
