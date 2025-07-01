@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "page": "rollup -c --watch",
+    "build": "BUILD=production rollup -c",
     "dev": "cd public && php -S localhost:6000"
   },
   "keywords": [],
@@ -22,6 +23,7 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^28.0.6",
     "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
     "rollup": "^4.44.1",
     "rollup-plugin-postcss": "^4.0.2",
     "rollup-plugin-serve": "^3.0.0"
