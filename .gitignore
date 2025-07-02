@@ -42,3 +42,4 @@ __pycache__
 public/fonts
 
 venv
+/vendor/

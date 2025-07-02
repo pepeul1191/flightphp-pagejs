@@ -1,0 +1,17 @@
+{
+    "name": "pepe/page",
+    "autoload": {
+        "psr-4": {
+            "Pepe\\Page\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Pepe Valdivia",
+            "email": "pepe.valdivia.caballero@gmail.com"
+        }
+    ],
+    "require": {
+        "mikecao/flight": "^3.15"
+    }
+}
