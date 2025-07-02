@@ -6,12 +6,19 @@ import terserPlugin from '@rollup/plugin-terser';
 
 const isProd = process.env.BUILD === 'production';
 
-export default {
-  input: 'src/main.js',
+const entries = [
+  { input: 'src/entries/website.js', name: 'website' },
+  { input: 'src/entries/vendor.js', name: 'vendor' }
+];
+
+export default entries.map(({ input, name }) => ({
+  input,
   output: {
-    file: isProd ? 'public/dist/bundle.min.js' : 'public/dist/bundle.js',
+    file: isProd
+      ? `public/dist/${name}.min.js`
+      : `public/dist/${name}.js`,
     format: 'iife',
-    name: 'app',
+    name: name, // nombre global del objeto expuesto
     sourcemap: true
   },
   plugins: [
@@ -19,10 +26,10 @@ export default {
     commonjs(),
     babel({ babelHelpers: 'bundled' }),
     postcss({
-      extract: true,
+      extract: true, // genera website.css, vendor.css
       minimize: isProd,
       sourceMap: true
     }),
     isProd && terserPlugin()
-  ].filter(Boolean) // <--- limpia falsos valores
-};
+  ].filter(Boolean)
+}));
